@@ -1,3 +1,4 @@
+// for a n size arr no of sub arr equal to n(n+1)/2
 // brute O(n2) TLE
     int maxSubArray(vector<int>& nums) {
         int maxSum=INT_MIN;
