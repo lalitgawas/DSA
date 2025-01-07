@@ -13,33 +13,36 @@
         return ans;
     }
     
-// thoda optimised O(nlogn + 2n)=>O(nlogn)
+// optimised O(nlogn + 2n)=>O(nlogn) 
     vector<int> twoSum(vector<int>& nums, int target) {
-        vector<int> temp;
+        vector<int> temp=nums;
         sort(nums.begin(),nums.end());
-       vector<int> ans;
-       int i=0;
-       int j=nums.size()-1;
-       int a=0;
-       int b=0;
-       while(i<j){
-        int answer=nums[i]+nums[j];
-        if(target>answer){
-           i++;
-        }else if(answer>target){
-            j--;
+        vector<int> arr;
+        int i=0;
+        int j=nums.size()-1;
+        int a=0; int b=0;
+        while(i<j){
+            if(nums[i]+nums[j]>target){
+                j--;
+            }
+            else if(nums[i]+nums[j]<target){
+                i++;
+            }
+            else{
+                a=nums[i];
+                b=nums[j];
+                break;
+            }
         }
-        else{
-            a=nums[i];
-            b=nums[j];
+        int k=0;
+        for(int i=0;i<temp.size();i++){
+            if(a==temp[i]||b==temp[i]){
+                arr.push_back(i);
+                k++;
+            }
+            if(k==2) break;
         }
-    for(int i=0;i <temp.size(); i++){
-        if(a==temp[i]||b==temp[i]){
-            ans.push_back(i);
-        }
-    }
-       }
-       return ans;
+        return arr;
     }
 
 // most optimised O(n)
