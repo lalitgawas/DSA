@@ -2,11 +2,12 @@
 using namespace std;
 // brute (TLE) O(n2)
 int maxProfit(vector<int>& prices){
+    int n=prices.size();
     int maxCnt=0;
     if(n==1){
             return 0;
         }
-    for(int i=0;i<n-2;i++){
+    for(int i=0;i<=n-2;i++){
         for(int j=i+1;j<n;j++){
             if(prices[j]>=prices[i]){
                 maxCnt=max(maxCnt,prices[j]-prices[i]);
